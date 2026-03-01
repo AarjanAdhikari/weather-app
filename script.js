@@ -18,8 +18,9 @@ let weather = {
 
   fetchWeather: async function (lat, lon, cityName, country) {
     try {
+      // Fetch current weather
       const weatherRes = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m&timezone=auto`
       );
       const data = await weatherRes.json();
       this.displayWeather(data, cityName, country);
@@ -79,10 +80,14 @@ let weather = {
     const weatherCode = current.weathercode;
     const description = this.getWeatherDescription(weatherCode);
 
+    // Fetch current hour humidity from hourly data
+    const hourIndex = data.hourly.time.findIndex(t => new Date(t).getHours() === new Date().getHours());
+    const humidity = hourIndex !== -1 ? data.hourly.relative_humidity_2m[hourIndex] : "N/A";
+
     document.querySelector(".city").innerText = cityName + ", " + country;
     document.querySelector(".description").innerText = description;
     document.querySelector(".temp").innerText = temperature + "°";
-    document.querySelector(".humidity").innerText = ""; // Open-Meteo doesn't provide humidity in current_weather
+    document.querySelector(".humidity").innerText = humidity + "%";
     document.querySelector(".wind").innerText = wind + " km/h";
 
     document.querySelector(".icon").src = this.getWeatherIcon(description);
