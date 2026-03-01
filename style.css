@@ -1,98 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    background: #222;
-    background-image: url('https://source.unsplash.com/1600x900/?nature,water,landscape');
-    font-size: 120%;
-  }
-  
-  .card {
-    background: #000000d0;
-    color: white;
-    padding: 2em;
-    border-radius: 30px;
-    width: 100%;
-    max-width: 420px;
-    margin: 1em;
-  }
-  
-  .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  button {
-    margin: 0.5em;
-    border-radius: 50%;
-    border: none;
-    height: 44px;
-    width: 44px;
-    outline: none;
-    background: #7c7c7c2b;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-  
-  input.search-bar {
-    border: none;
-    outline: none;
-    padding: 0.4em 1em;
-    border-radius: 24px;
-    background: #7c7c7c2b;
-    color: white;
-    font-family: inherit;
-    font-size: 105%;
-    width: calc(100% - 100px);
-  }
-  
-  button:hover {
-    background: #7c7c7c6b;
-  }
-  
-  h1.temp {
-    margin: 0;
-    margin-bottom: 0.4em;
-  }
-  
-  .flex {
-    display: flex;
-    align-items: center;
-  }
-  
-  .description {
-    text-transform: capitalize;
-    margin-left: 8px;
-  }
-  
-  .weather.loading {
-    visibility: hidden;
-    max-height: 20px;
-    position: relative;
-  }
-  
-  .weather.loading:after {
-    visibility: visible;
-    content: "Loading...";
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 20px;
-  }
-  
-  .footer{
-    position:absolute; padding: 0.4rem !important;margin: 10px;
-    border-color: inherit;
-      border-style: solid;
-      border-width: 0;
-    background-color: #212529 !important;
-  }
-  .footer h4{
-    color: white; 
-    text-align: center;
-  }
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  background: #0b0f14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e6edf3;
+  transition: background 0.5s ease;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(18, 24, 32, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.search {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-bar:focus {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.search-btn {
+  margin-left: 10px;
+  width: 44px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.top {
+  margin-bottom: 20px;
+}
+
+.city {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.date {
+  font-size: 13px;
+  color: #9aa4af;
+  margin-top: 4px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.temperature-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -2px;
+}
+
+.description {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #9aa4af;
+  margin-top: 6px;
+}
+
+.icon {
+  width: 90px;
+  height: 90px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 14px 18px;
+  border-radius: 14px;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 12px;
+  color: #9aa4af;
+  margin-bottom: 4px;
+}
+
+.humidity,
+.wind {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.weather.loading {
+  visibility: hidden;
+  height: 100px;
+}
+
+.weather.loading::after {
+  visibility: visible;
+  content: "Fetching live atmosphere data...";
+  font-size: 14px;
+  color: #9aa4af;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7480;
+  margin-top: 20px;
+}
