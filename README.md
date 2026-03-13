@@ -34,6 +34,3 @@ A modern weather application that provides real-time weather data and forecasts 
 - ⚡ Fast API integration
 
 ---
-
-
-The project follows a modular structure:
