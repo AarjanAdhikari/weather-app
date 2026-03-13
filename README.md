@@ -1,6 +1,6 @@
 # 🌦 WeatherNow
 
-A modern weather application that provides real-time weather data and forecasts for any city worldwide using a public weather API.
+A modern weather application that provides real-time weather data and forecasts for any city worldwide using a public weather API!
 
 ![Project Preview](preview.png)
 
