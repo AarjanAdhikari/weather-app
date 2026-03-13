@@ -6,7 +6,6 @@ A modern weather application that provides real-time weather data and forecasts 
 
 ---
 
-
 ## 🛠 Tech Stack
 
 **Frontend**
