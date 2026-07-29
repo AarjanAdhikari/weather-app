@@ -85,7 +85,7 @@ cd <repository-name>
 ```
 
 ```javascript
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=relative_humidity_2m&timezone=auto";
 ```
 
 Launch the application using a local development server such as **VS Code Live Server**, or simply open `index.html` if no server is required.
